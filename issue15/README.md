@@ -132,3 +132,5 @@ SanskritGrammar, не этот.
 - **Не несёт частот** — `n_left_members` это число типов, не токенов.
 
 _Auto-generated tables; prose by Dr. Mārcis Gasūns._
+
+_Dr. Mārcis Gasūns_
