@@ -1557,7 +1557,8 @@ def analysis_all(recs):
    continue
   try:
    functions.append(localdict[fcnname])
-  except:
+  except Exception as e:
+   sys.stderr.write('compounds.py analysis_all: option %s: error at py line %s: %s: %s\n' % (option,sys.exc_info()[2].tb_lineno,type(e).__name__,e))
    print("analysis_all. Unknown option:",option, fcnname)
    exit(1)
 
