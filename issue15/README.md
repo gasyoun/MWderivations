@@ -120,7 +120,7 @@ SanskritGrammar, не этот.
 `VisualDCS/derived-data/Kompozity/`, но ключом там служит словоформа, а не член. Джойн даёт то,
 чего нет ни у одной стороны по отдельности: «продуктивен по словарю vs засвидетельствован в
 корпусе». Спланирован в
-[H1328](https://github.com/gasyoun/Uprava/blob/main/handoffs/H1328-Opus_VisualDCS_kompozity-mw-uttarapada-join-dict-vs-corpus_19.07.26.md).
+[H1328](https://github.com/gasyoun/Uprava/blob/main/handoffs/archive/H1328-Opus_VisualDCS_kompozity-mw-uttarapada-join-dict-vs-corpus_19.07.26.md).
 
 ### 4. Чего этот файл НЕ даёт
 
