@@ -1,6 +1,30 @@
 """ compounds.py
-   Dec 2, 2020. 
+   Dec 2, 2020.
    
+ARCHIVED LEGACY — Python 2 research script, kept for provenance only (H7243,
+24-10-2026). Do not port and do not wire a lint gate over this file.
+
+Decision: ARCHIVE, not port. Reasons, each verified 24-10-2026:
+
+* Py2-only syntax and builtins: `xrange` at 8 sites (134, 145, 505, 561, 609,
+  630, 687, 756, ...); `partition` at 844/868 is not a builtin in Py2 either —
+  it is defined in `step3/partition.py` and `step4/partition.py`, which are not
+  on this directory's import path, so the script cannot run from `compounds/`.
+* Missing imports: `copy.copy` (1359, 1377, 1438, 1474, 1506, 1524) and
+  `Counter` (1818) are used without `import copy` / `from collections import
+  Counter`.
+* `ScharfSandhi` (538, 587) is never imported here; the class lives in
+  `step3/scharfsandhi.py` and `step4/scharfsandhi.py`.
+* The repository README states it is "a research workspace, not a software
+  product"; there is no Python CI in this repo (only dependabot).
+
+The data product, not the code, is what the estate consumes: `compounds.txt` is
+read by `issue15/build_reverse_compound_index.py`. Porting would mean
+reconstructing the original driver (the missing partition/ScharfSandhi wiring),
+which this repository does not record; a port would therefore be speculative.
+
+The 22 ruff F821 sites this file contributes are therefore a documented legacy
+exclusion, not an open repair item.
 """
 import codecs,re,sys
 import transcoder
