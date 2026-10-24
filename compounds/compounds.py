@@ -6,15 +6,21 @@ ARCHIVED LEGACY — Python 2 research script, kept for provenance only (H7243,
 
 Decision: ARCHIVE, not port. Reasons, each verified 24-10-2026:
 
-* Py2-only syntax and builtins: `xrange` at 8 sites (134, 145, 505, 561, 609,
-  630, 687, 756, ...); `partition` at 844/868 is not a builtin in Py2 either —
-  it is defined in `step3/partition.py` and `step4/partition.py`, which are not
-  on this directory's import path, so the script cannot run from `compounds/`.
-* Missing imports: `copy.copy` (1359, 1377, 1438, 1474, 1506, 1524) and
-  `Counter` (1818) are used without `import copy` / `from collections import
+* `xrange` at 12 sites (158, 169, 529, 585, 633, 654, 711, 780, 869, 895, 957,
+  1002) — a builtin in Python 2 only. This file itself *parses* under Python 3;
+  what makes it Python 2 is the builtin plus the helpers below.
+* `partition` at 868, 892 and 1001 is not a builtin in either version — it is
+  defined in `step3/partition.py` and `step4/partition.py`, which are not on
+  this directory's import path, so the script cannot run from `compounds/`.
+  Both of those helpers are themselves Python 2: `py_compile` on each stops at
+  `print` without parentheses (SyntaxError), so a port means converting four
+  files, not one.
+* Missing imports: `copy.copy` (1383, 1401, 1462, 1498, 1530, 1548) and
+  `Counter` (1842) are used without `import copy` / `from collections import
   Counter`.
-* `ScharfSandhi` (538, 587) is never imported here; the class lives in
-  `step3/scharfsandhi.py` and `step4/scharfsandhi.py`.
+* `ScharfSandhi` (562, 611) is never imported here; the class lives in
+  `step3/scharfsandhi.py` and `step4/scharfsandhi.py`, and that module is Py2
+  too (same `print` SyntaxError).
 * The repository README states it is "a research workspace, not a software
   product"; there is no Python CI in this repo (only dependabot).
 
